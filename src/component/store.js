@@ -1,0 +1,25 @@
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import ToDoReducers from '../reducers/ToDoReducers';
+
+const reducer = combineReducers({
+    //this contains all reducers
+
+    Todo: ToDoReducers,
+
+});
+
+const initialState = {};
+
+
+const middleware = [thunk];
+
+const store = createStore(
+    reducer,
+    initialState,
+    composeWithDevTools(applyMiddleware(...middleware))
+);
+
+
+export default store;
