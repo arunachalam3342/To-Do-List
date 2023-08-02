@@ -6,6 +6,9 @@ const ToDoReducers = (state = { todos: [] }, action) => {
         case "DELETE":
             return { todos: action.payload };
 
+        case "SET_TODOS":
+            return { todos: action.payload }
+
         default:
             return state;
     }

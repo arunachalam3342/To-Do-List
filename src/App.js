@@ -1,20 +1,33 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 import './style/style.css'
 import { ADDToDoActions, DELETEToDoActions } from './actions/ToDoActions';
 function App() {
 
-  const [todo, setTodo] = useState();
+  const [todo, setTodo] = useState('');
 
   const dispatch = useDispatch();
 
   const Todo = useSelector((state) => state.Todo)
   const { todos } = Todo;
 
+  useEffect(() => {
+    const storedTodos = localStorage.getItem('todos');
+    if (storedTodos) {
+      dispatch({ type: 'SET_TODOS', payload: JSON.parse(storedTodos) })
+    }
+  }, [dispatch])
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos])
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(ADDToDoActions(todo));
+    setTodo('');
   }
   const handleDelete = (t) => {
     dispatch(DELETEToDoActions(t));
