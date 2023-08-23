@@ -1,5 +1,10 @@
 body {
-    font-family: 'Times New Roman', Times, serif
+    font-family: 'Times New Roman', Times, serif;
+    background-image: linear-gradient(45deg, transparent 20%, black 25%, transparent 25%),
+        linear-gradient(-45deg, transparent 20%, black 25%, transparent 25%),
+        linear-gradient(-45deg, transparent 75%, black 80%, transparent 0);
+    background-size: 30px 30px, 30px 30px, 30px 30px;
+
 }
 
 .heading {
@@ -10,8 +15,8 @@ body {
 .container-lg,
 .container-md,
 .container-sm {
-    max-width: 40vw;
-    max-height: 30vh;
+    max-width: 50vw;
+    max-height: 40vh;
     box-shadow: 2px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -39,8 +44,8 @@ input {
 }
 
 .round-button:hover {
-    background-color: #918f8f;
-    color: green;
+    background-color: #e4d1d1;
+    color: rgb(15, 221, 15);
 }
 
 .round-button:active {
@@ -66,15 +71,23 @@ input {
     margin: 0;
     padding: 0;
     width: 25rem;
+
+
+
+    @media (max-width: 768px) {
+        max-width: 10rem;
+
+    }
 }
 
 .todolist {
     border: 2px black solid;
     border-radius: 10px;
     margin: 10px 0;
-    background-color: gray;
+    background-color: rgb(0, 0, 0, 0.8);
+    color: white;
     padding: 5px;
-    color: black;
+
     font-weight: bold;
     display: flex;
     flex-direction: row;
@@ -82,8 +95,8 @@ input {
     box-shadow: 5px 3px 5px 2px rgb(119, 115, 115);
 
     &:hover {
-        background-color: lightgray;
-        color: darkgreen;
+        background-color: rgb(0, 0, 0, 0.2);
+        color: rgb(30, 160, 30);
     }
 }
 
@@ -91,4 +104,28 @@ input {
     text-align: center;
     flex: 1;
     font-size: 2rem;
+}
+
+.container {
+    box-shadow: 2px 5px 10px 5px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    color: black;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 90vw;
+
+    }
+}
+
+@media (max-width: 768px) {
+    input {
+        width: 100%;
+    }
+
+    .round-button {
+        margin-top: 1rem;
+    }
 }
